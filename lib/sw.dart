@@ -35,9 +35,38 @@ class StopWatchState extends State<StopWatch> {
       appBar: AppBar(
         title: Text('Stopwatch'),
       ),
-      body: Center(
-        child: Text('$seconds ${_secondsString()}',
-          style: Theme.of(context).textTheme.titleMedium,),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text(
+            '$seconds ${_secondsString()}',
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
+          SizedBox(width: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget> [
+              ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                  ),
+                  onPressed: null,
+                  child: Text('Start')
+              ),
+              SizedBox(width: 20),
+              TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: null,
+                child: Text('Stop'),
+              )
+            ],
+          ),
+
+        ],
       ),
     );
   }
